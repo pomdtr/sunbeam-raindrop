@@ -1,0 +1,12 @@
+#!/bin/sh
+
+DIRNAME=$(dirname "$0")
+
+# check if deno is installed
+if ! command -v deno >/dev/null 2>&1;
+then
+    echo "Deno is not installed. Please install deno from https://deno.com"
+    exit
+fi
+
+exec deno run -A "$DIRNAME/raindrop.ts" "$@"
